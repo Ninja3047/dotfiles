@@ -1,0 +1,60 @@
+separator_block_width=15
+
+[weather]
+full_text=☂ฺ ☀ฺ Weather ☂ฺ ☀ฺ
+command=~/.scripts/i3blocks/iconweather.sh "NAM|US|MA|02494"
+interval=1800
+color=#d11793
+separator=true
+
+[cpu]
+label=CPU
+command=/usr/libexec/i3blocks/cpu_usage
+interval=10
+min_width=CPU 100.00%
+
+[memory]
+label=MEM
+command=/usr/libexec/i3blocks/memory
+separator=false
+interval=30
+
+[wireless]
+label=W
+instance=wlp3s0
+command=/usr/libexec/i3blocks/network
+color=#00FF00
+interval=10
+
+[download]
+label=D:
+command=~/.scripts/i3blocks/bandwidth.sh rx
+min_width=0000 kB/s
+align=left
+color=#17d155
+interval=1 # IMPORTANT
+separator=false
+
+[upload]
+label=U:
+command=~/.scripts/i3blocks/bandwidth.sh tx
+min_width=0000 kB/s
+align=left
+color=#d15517
+interval=1 # IMPORTANT
+
+[volume]
+label=♪
+#instance=Master
+command=~/.scripts/i3blocks/volume.sh
+interval=1
+signal=10
+
+[battery]
+label=⚡
+command=/usr/libexec/i3blocks/battery BAT0
+interval=30
+
+[time]
+command=~/.scripts/i3blocks/timezone.rb
+interval=1

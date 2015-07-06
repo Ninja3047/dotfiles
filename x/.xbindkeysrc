@@ -1,0 +1,17 @@
+#Toggle Touchpad on and off
+"synclient TouchpadOff=$(synclient -l | grep -ce TouchpadOff.*0)"
+    m:0x0 + c:199
+    XF86TouchpadToggle
+
+#mute
+"amixer set Master toggle"
+m:0x0 + c:121
+XF86AudioMute
+#increase volume
+"amixer set Master playback 5%+"
+m:0x0 + c:123
+XF86AudioRaiseVolume
+#decrase volume
+"amixer set Master playback 5%-"
+m:0x0 + c:122
+XF86AudioLowerVolume
