@@ -15,6 +15,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 xset r rate 200 30
+srandrd ~/.scripts/detect_displays.sh
 
 # unclutter -idle 5 &
 

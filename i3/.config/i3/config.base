@@ -28,7 +28,7 @@ new_window 1pixel
 new_float 1pixel
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -38,7 +38,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -dmenu -p ": " -i -fn 'DejaVu-Sans-10' -l 20" --term="i3-sensible-terminal"
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -dmenu -p ": " -i -fn 'DejaVu-Sans-10' -l 20" --term="st"
 #bindsym $mod+d exec --no-startup-id lighthouse | sh
 # change focus
 bindsym $mod+j focus left
@@ -216,7 +216,7 @@ for_window [class="^.*"] border pixel 0
 for_window [class="(?i)urxvt"] border pixel 3
 
 # Workspace window assignment
-assign [class="^URxvt$" instance="^Weechat$"] 4: irc
+assign [class="^st$" instance="^Weechat$"] 4: irc
 assign [class="Chromium"] 2: www
 assign [class="Firefox"] 2: www
 assign [class="Steam"] 5
@@ -224,8 +224,7 @@ assign [instance="^ncmpcpp$"] 6
 assign [class="^mpv$"] 10: mpv
 # assign [class="^URxvt$"] 3: terminal
 
-for_window [title="wtan@Fenrir: ~/Documents/Codes"] move container to workspace 8: code, focus
-for_window [class="^URxvt$"] focus
+for_window [class="^st$"] focus
 for_window [instance="^ncmpcpp$"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="mpv"] border normal
@@ -233,14 +232,13 @@ for_window [window_role="pop-up"] floating enable
 
 for_window [class="^.*"] border 1pixel
 
+exec --no-startup-id ~/.scripts/detect_displays.sh
 exec --no-startup-id xbindkeys
-exec --no-startup-id nm-applet
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 exec --no-startup-id dunst
 exec --no-startup-id feh --randomize --bg-fill ~/.wallpaper/*
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xss-lock -- ~/.scripts/i3lock.sh &
-exec --no-startup-id srandrd ~/.scripts/detect_displays.sh &
 
 #pinyin
 exec --no-startup-id ibus-daemon -d -x

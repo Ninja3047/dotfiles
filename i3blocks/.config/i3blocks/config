@@ -46,7 +46,7 @@ interval=1 # IMPORTANT
 [volume]
 label=♪
 #instance=Master
-command=~/.scripts/i3blocks/volume.sh
+command=~/.scripts/i3blocks/volume-pulse
 interval=1
 signal=10
 

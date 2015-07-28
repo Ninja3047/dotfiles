@@ -14,21 +14,23 @@ noremap gk gj
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
+Plug 'luochen1990/rainbow'
+Plug 'bling/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'wlangstroth/vim-racket'
+Plug 'vim-latex-live-preview'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'flazz/vim-colorschemes'
-" Plug 'Shougo/neocomplcache.vim'
- Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/vimshell.vim'
-" Plug 'scrooloose/syntastic'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'bling/vim-airline'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'wlangstroth/vim-racket'
-Plug 'luochen1990/rainbow'
-Plug 'tpope/vim-surround'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neco-vim'
+Plug 'Shougo/neco-syntax'
 Plug 'benekastah/neomake'
 Plug 'critiqjo/lldb.nvim'
 
@@ -51,10 +53,14 @@ set laststatus=2
 set backspace=2
 
 " Colorscheme
-colorscheme Tomorrow-Night-Bright
+let base16colorspace=256
+colorscheme base16-default
 
 " Enable the rainbow
 let g:rainbow_active = 1
+
+" Latex live preview
+let g:livepreview_previewer = 'zathura'
 
 " Airline
 if $TERM != 'linux'
@@ -73,7 +79,15 @@ let g:deoplete#sources = {}
 let g:deoplete#sources_ = ['buffer']
 let g:deoplete#sources.cpp = ['buffer', 'tag']
 
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h>
 		\ deolete#mappings#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>
