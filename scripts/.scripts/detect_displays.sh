@@ -35,4 +35,4 @@ do
 done
 set -x
 ${CMD}
-set +x<F37>
+set +x
