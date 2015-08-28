@@ -239,6 +239,7 @@ exec --no-startup-id dunst
 exec --no-startup-id feh --randomize --bg-fill ~/.wallpaper/*
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xss-lock -- ~/.scripts/i3lock.sh &
+exec --no-startup-id nm-applet &
 
 #pinyin
 exec --no-startup-id ibus-daemon -d -x
