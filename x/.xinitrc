@@ -15,7 +15,6 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 xset r rate 200 30
-srandrd ~/.scripts/detect_displays.sh
 
 # unclutter -idle 5 &
 
@@ -34,3 +33,4 @@ srandrd ~/.scripts/detect_displays.sh
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
+exec i3
