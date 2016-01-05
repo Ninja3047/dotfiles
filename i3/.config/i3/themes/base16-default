@@ -1,66 +1,37 @@
-# tango theme for i3wm by lasers
-
-# I wrote this theme to make i3 match my tango colorscheme terminals.
-# Colors obtained from http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines
-
-# $i3-status
-color_bad = "#CC0000"
-color_degraded = "#EDD400"
-color_good = "#73D216"
-
+# Base16 Tomorrow, by Chris Kempson (http://chriskempson.com) 
+# template by Matt Parnell, @parnmatt
 # $i3-theme-window
-# tango dark
-set $darkblue 		#204A87
-set $darkbrown		#8F5902
-set $darkgreen 		#4E9A06
-set $darkmagenta 	#5C3566
-set $darkred 		#A40000
-set $darkyellow 	#C4A000
-set $darkorange		#CE5C00
 
-# tango light
-set $lightblue 		#729FCF
-set $lightbrown		#E9B96E
-set $lightgreen 	#8AE234
-set $lightmagenta 	#AD7FA8
-set $lightred 		#EF2929
-set $lightyellow 	#FCE94F
-set $lightorange	#FCAF3E
+set $base00 #181818
+set $base01 #282828
+set $base02 #383838
+set $base03 #585858
+set $base04 #b8b8b8
+set $base05 #d8d8d8
+set $base06 #e8e8e8
+set $base07 #f8f8f8
+set $base08 #ab4642
+set $base09 #dc9656
+set $base0A #f7ca88
+set $base0B #a1b56c
+set $base0C #86c1b9
+set $base0D #7cafc2
+set $base0E #ba8baf
+set $base0F #a16946
 
-# tango normal
-set $blue 		#3465A4
-set $brown		#C17D11
-set $green 		#73D216
-set $magenta 		#75507B
-set $red 		#CC0000
-set $yellow 		#EDD400
-set $orange		#F57900
-
-# tango mono
-set $black 		#555753
-set $grey		#BABDB6
-set $white 		#EEEEEC
-set $darkblack 		#2E3436
-set $darkgrey 		#888A85
-set $darkwhite 		#D3D7CF
-
-# $i3-background
-exec_always --no-startup-id xsetroot -solid '#2E3436'
-
-# tango <clientclass> <border> <backg> <text> <indicator>
-client.focused          $blue $darkblue $white $blue
-client.focused_inactive $darkgrey $black $grey $darkgrey
-client.unfocused        $black $darkblack $grey $darkgrey
-client.urgent           $lightred $red $white $lightred
+# class                 border  backgr. text    indicator
+client.focused $base0D $base0D $base00 $base01
+client.focused_inactive $base02 $base02 $base03 $base01
+client.unfocused $base01 $base01 $base03 $base01
+client.urgent $base02 $base08 $base07 $base08
 
 # $i3-theme-bar
 colors {
-    # tango <workclass> <border> <backg> <text>
-    focused_workspace 	$blue $darkblue $white
-    active_workspace 	$grey $darkgrey $grey
-    inactive_workspace	$black $darkblack $grey
-    urgent_workspace 	$red $darkred $white
-    background #222222
-    separator  #444444
-    statusline $darkgrey
+	separator $base03
+	background $base01
+	statusline $base05
+	focused_workspace $base0C $base0D $base00
+	active_workspace $base02 $base02 $base07
+	inactive_workspace $base01 $base01 $base03
+	urgent_workspace $base08 $base08 $base07
 }
