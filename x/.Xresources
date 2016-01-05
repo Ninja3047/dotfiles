@@ -7,9 +7,12 @@ URxvt*saveLines: 12000
 URxvt*background: rgba:0000/0000/0000/cccc
 ! URxvt*cursorColor:  #335A80
 ! Urxvt*letterSpace:  -0.5
-URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=13,xft:Symbola:pixelsize=11
+URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=13,xft:Source Han Sans:pixelsize=12:antialias=false,xft:Symbola:pixelsize=11
 URxvt*scrollBar: false
 URxvt*scrollstyle: rxvt
+
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
 
 ! URxvt Special Keys !
 URxvt*keysym.Home: \033[1~
