@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mkdir -p ../bin
+
+javac -cp "/home/wtan/Jars/*:." -d ../bin $1
+
+cd ../bin
+echo $PWD
+java -cp "/home/wtan/Jars/*:." tester.Main Examples${1%.*}
