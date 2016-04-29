@@ -1,3 +1,4 @@
+command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 
 [weather]
@@ -9,39 +10,26 @@ separator=true
 
 [cpu]
 label=CPU
-command=/usr/libexec/i3blocks/cpu_usage
+command=/usr/lib/i3blocks/cpu_usage
 interval=10
 min_width=CPU 100.00%
 
-[memory]
-label=MEM
-command=/usr/libexec/i3blocks/memory
-separator=false
-interval=30
-
-[wireless]
-label=W
-instance=wlp3s0
-command=/usr/libexec/i3blocks/network
-color=#00FF00
+[temp]
+label=TEMP
+command=sensors | pcregrep --only-matching ' (\+\d+\.\d+°C) ' | sort -g | tail -n 1 | sed s/\ //g
 interval=10
 
-[download]
-label=D:
-command=~/.scripts/i3blocks/bandwidth.sh rx
-min_width=0000 kB/s
-align=left
-color=#17d155
-interval=1 # IMPORTANT
+[memory]
+label=MEM
 separator=false
+interval=30
+separator=true
 
-[upload]
-label=U:
-command=~/.scripts/i3blocks/bandwidth.sh tx
-min_width=0000 kB/s
-align=left
-color=#d15517
-interval=1 # IMPORTANT
+[iface]
+label=IP
+color=#00FF00
+interval=10
+separator=true
 
 [volume]
 label=♪
@@ -52,7 +40,6 @@ signal=10
 
 [battery]
 label=⚡
-command=/usr/libexec/i3blocks/battery BAT0
 interval=30
 
 [time]
